@@ -10,8 +10,8 @@
  */
 import React from 'react';
 // import Service from './Service';
-// import DependsOnView from './DependsOnView';
-import NetworksView from './NetworksView';
+import DependsOnView from './DependsOnView';
+// import NetworksView from './NetworksView';
 
 import { Services, SetSelectedContainer, Options, Networks } from '../App.d';
 
@@ -20,29 +20,32 @@ type Props = {
   setSelectedContainer: SetSelectedContainer;
   options: Options;
   networks: Networks;
+  view: string;
 };
 
 const ServicesWrapper: React.FC<Props> = ({
   services,
   setSelectedContainer,
   options,
-  networks
+  networks,
+  view,
 }) => {
   return (
     <div className="services-wrapper">
       {/* <Service service={services.app} name="app" /> */}
-      {/* <DependsOnView
+      <DependsOnView
         services={services}
         setSelectedContainer={setSelectedContainer}
         options={options}
-      /> */}
-        {console.log('these are the networks: ', networks)}
-      <NetworksView
+        view={view}
+      />
+      {console.log('these are the networks: ', networks)}
+      {/* <NetworksView
         services={services}
         setSelectedContainer={setSelectedContainer}
         options={options}
         networks={networks}
-      />
+      /> */}
     </div>
   );
 };
